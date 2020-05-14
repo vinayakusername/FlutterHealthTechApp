@@ -272,7 +272,7 @@ class _LoginRegisterState extends State<LoginRegisterPage>{
          (
             backgroundColor: Colors.transparent,
             radius: 110.0,
-            child: Image.asset("login_photo.jpg"),
+            child: Image.asset("images/login_photo.jpg"),
          ),
          );
   }
