@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:health_tech_app1/Data_Model/Data_Model_ObjectFile.dart';
+import 'package:health_tech_app1/utility/DBWebService_FirebaseAuthentication.dart';
 
 class LoginRegisterPage extends StatefulWidget
 {
-  //  LoginRegisterPage
-  //  ({
-  //    this.auth,
-  //    this.onSignedIn
-  //  });
+   LoginRegisterPage
+   ({
+     this.auth,
+     this.onSignedIn
+   });
 
-  //  final AuthImplementation auth;
-  //  final VoidCallback onSignedIn;
+   final AuthImplementation auth;
+   final VoidCallback onSignedIn;
    
 
    @override
@@ -56,19 +58,19 @@ class _LoginRegisterState extends State<LoginRegisterPage>{
            {
               if(_formType == FormType.login)
               {
-                // String userId = await widget.auth.SignIn(_email, _password);
-                // dialogBox.information(context,"Congrulations","You are loggedIn successfully");
-                // setUserID(userId);
+                String userId = await widget.auth.SignIn(_email, _password);
+                dialogBox.information(context,"Congrulations","You are loggedIn successfully");
+                //setUserID(userId);
                 
-                // //print("login userId="+userId);
-                // print(getUserID());
+                //print("login userId="+userId);
+                //print(getUserID());
               
               }
               else
               {
-                // String userId = await widget.auth.SignUp(_email, _password);
-                // dialogBox.information(context,"Congrulations","Your account has created successfully");
-                // print("Register userId="+userId);
+                String userId = await widget.auth.SignUp(_email, _password);
+                dialogBox.information(context,"Congrulations","Your account has created successfully");
+                print("Register userId="+userId);
                 
               }
 

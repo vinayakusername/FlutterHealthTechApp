@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:health_tech_app1/Mapping.dart';
+import 'package:health_tech_app1/utility/DBWebService_FirebaseAuthentication.dart';
 import 'package:health_tech_app1/views/widget_GalleryEventPage.dart';
 import 'package:health_tech_app1/views/widget_SupportPage.dart';
 import 'package:health_tech_app1/views/widget_WalletPage.dart';
-import 'package:health_tech_app1/views/widget_loginPage.dart';
+
 
 void main() => runApp(MyApp());
 
@@ -17,9 +19,9 @@ class MyApp extends StatelessWidget {
        
         primarySwatch: Colors.pink
       ),
-      home: LoginRegisterPage(),
+      //home: LoginRegisterPage(),
 
-     // home: MappingPage(auth: Auth(),),
+      home: MappingPage(auth: Auth(),),
       
       routes: <String,WidgetBuilder>{
         // When navigating to the "/a" route, build the Settings Page widget.

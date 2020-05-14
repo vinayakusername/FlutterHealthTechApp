@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:health_tech_app1/utility/DBWebService_FirebaseAuthentication.dart';
 import 'package:health_tech_app1/views/widget_BuyPage.dart';
 import 'package:health_tech_app1/views/widget_MojoPage.dart';
 
@@ -8,14 +9,14 @@ class MyHomePage extends StatefulWidget {
  // MyHomePage({Key key, this.title}) : super(key: key);
  //final String title;
 
-//  MyHomePage
-//  ({
-//    this.auth,
-//    this.onSignedOut
-//  });
+ MyHomePage
+ ({
+   this.auth,
+   this.onSignedOut
+ });
 
-//  final AuthImplementation auth;
-//  final VoidCallback onSignedOut;
+ final AuthImplementation auth;
+ final VoidCallback onSignedOut;
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
