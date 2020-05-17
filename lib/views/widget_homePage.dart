@@ -29,8 +29,8 @@ class _MyHomePageState extends State<MyHomePage> {
   {
      try
      {
-      // await widget.auth.signOut();
-      // widget.onSignedOut;
+      await widget.auth.signOut();
+      widget.onSignedOut;
      }
      catch(e)
      {
@@ -98,7 +98,7 @@ class _MyHomePageState extends State<MyHomePage> {
                    //onTap widget is used for providing triggering an event.
                    onTap: () {
                      Navigator.of(context).pop(); // this statement is used to close the drawer.
-                     Navigator.of(context).pushNamed("/a"); // this statement is used navigate to specified route or page using named route='/a'.
+                     Navigator.of(context).pushNamed("/c"); // this statement is used navigate to specified route or page using named route='/a'.
                      },
               ),
               
@@ -116,7 +116,7 @@ class _MyHomePageState extends State<MyHomePage> {
                    leading: Icon(Icons.help),
                    onTap: (){
                      Navigator.of(context).pop();
-                     Navigator.of(context).pushNamed("/c");
+                     Navigator.of(context).pushNamed("/a");
                    },
               ),
               

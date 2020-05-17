@@ -74,12 +74,12 @@ class _LoginRegisterState extends State<LoginRegisterPage>{
                 
               }
 
-              // widget.onSignedIn();
+              widget.onSignedIn();
            }
            catch(e)
            {
-              // dialogBox.information(context,"Error Message", e.toString());
-              // print("Error:"+ e.toString());
+              dialogBox.information(context,"Error Message", e.toString());
+              print("Error:"+ e.toString());
            }
          }
   }
