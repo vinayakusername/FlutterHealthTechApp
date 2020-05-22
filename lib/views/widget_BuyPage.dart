@@ -14,9 +14,9 @@ class BuyPage extends StatefulWidget
   Widget build(BuildContext context)
   {
     return new Scaffold(
-     appBar: new AppBar(
-       title: new Text('Buy Page'),
-     ),
+    //  appBar: new AppBar(
+    //    title: new Text('Buy Page'),
+    //  ),
      body: Container
              (
                 alignment: Alignment.center,

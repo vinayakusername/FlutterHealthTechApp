@@ -13,9 +13,9 @@ class _MojoPageState extends State<MojoPage>
   Widget build(BuildContext context)
   {
     return new Scaffold(
-     appBar: new AppBar(
-       title: new Text('Mojo Page'),
-     ),
+    //  appBar: new AppBar(
+    //    title: new Text('Mojo Page'),
+    //  ),
      body: Container
              (
                 alignment: Alignment.center,

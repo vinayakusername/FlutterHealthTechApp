@@ -1,9 +1,14 @@
+
 import 'dart:io';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:health_tech_app1/utility/DBWebService_FirebaseAuthentication.dart';
 import 'package:health_tech_app1/views/widget_BuyPage.dart';
 import 'package:health_tech_app1/views/widget_MojoPage.dart';
+
 
 class MyHomePage extends StatefulWidget {
  // MyHomePage({Key key, this.title}) : super(key: key);
@@ -24,7 +29,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  
+
+  int getPageIndex =1;
+ 
   void logOutUser() async
   {
      try
@@ -37,7 +44,10 @@ class _MyHomePageState extends State<MyHomePage> {
         print("Error:"+e.toString());
      }
   }
-
+  
+  
+  
+   
   @override
   Widget build(BuildContext context) {
 
@@ -57,13 +67,18 @@ class _MyHomePageState extends State<MyHomePage> {
          
        drawer: navigationDrawer(),
 
-       body: Container
+   
+      body: Container
              (
                 alignment: Alignment.center,
                 child: Text("MY Home Page",style: TextStyle(color: Colors.black,fontSize: 20.0),),
-             ) ,
+            ),  
+ 
+      
+ 
+       bottomNavigationBar: bottomNavigationBar1(),    
 
-       bottomNavigationBar: bottomMenuBar(),
+      
     );
   }
   
@@ -125,15 +140,15 @@ class _MyHomePageState extends State<MyHomePage> {
                    leading: Icon(Icons.edit),
                    onTap: (){
                      Navigator.of(context).pop();
-                     //Navigator.of(context).pushNamed("/c");
-                      Navigator.push
-                                (
-                                  context, 
-                                  MaterialPageRoute(builder: (context)
-                                  {
-                                   // return new SetUserProfile();
-                                  })
-                                );
+                     Navigator.of(context).pushNamed("/f");
+                      // Navigator.push
+                      //           (
+                      //             context, 
+                      //             MaterialPageRoute(builder: (context)
+                      //             {
+                      //              // return new SetUserProfile();
+                      //             })
+                      //           );
                    },
               ),
 
@@ -142,7 +157,7 @@ class _MyHomePageState extends State<MyHomePage> {
                    leading: Icon(Icons.question_answer),
                    onTap: (){
                      Navigator.of(context).pop();
-                     Navigator.of(context).pushNamed("/c");
+                     Navigator.of(context).pushNamed("/e");
                    },
               ),
               
@@ -151,7 +166,7 @@ class _MyHomePageState extends State<MyHomePage> {
                    leading: Icon(Icons.search),
                    onTap: (){
                      Navigator.of(context).pop();
-                     Navigator.of(context).pushNamed("/c");
+                     Navigator.of(context).pushNamed("/d");
                    },
               ),
 
@@ -165,8 +180,6 @@ class _MyHomePageState extends State<MyHomePage> {
                    leading: Icon(Icons.lock),
                    onTap: () 
                    {
-                     //Navigator.of(context).pop();
-                     //exit(0);
                      logOutUser();
                    },
               ),
@@ -206,79 +219,30 @@ class _MyHomePageState extends State<MyHomePage> {
         );
  
   }
-    
-  Widget bottomMenuBar()
-  {
-    return BottomAppBar
-       (
-            color: Colors.pink,
-            child: Container
-            (
-              margin: EdgeInsets.only(left:70.0,right:70.0),
-              child: Row
-              (
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                mainAxisSize: MainAxisSize.max,
 
-                children: <Widget>
-                [
-                    IconButton(
-                      icon: Icon(Icons.home),
-                      iconSize: 40,
-                      color: Colors.white, 
-                      onPressed:()
-                      {
-                         Navigator.of(context).pop();
-                         Navigator.push
-                                (
-                                  context, 
-                                  MaterialPageRoute(builder: (context)
-                                  {
-                                    return new MyHomePage();
-                                  })
-                                );
-                      },
-                      ),
-                 
-                    IconButton(
-                      icon: Icon(Icons.gif),
-                      iconSize: 40,
-                      color: Colors.white, 
-                      onPressed:()
-                      { 
-                        Navigator.of(context).pop();
-                        Navigator.push
-                                (
-                                  context, 
-                                  MaterialPageRoute(builder: (context)
-                                  {
-                                    //return new UploadPhotoPage();
-                                    return new MojoPage();
-                                  })
-                                );
-                      }
-                      ),
-                    
-                    IconButton(
-                      icon: Icon(Icons.add_shopping_cart),
-                      iconSize: 40,
-                      color: Colors.white, 
-                      onPressed:()
-                      {
-                         Navigator.of(context).pop();
-                         Navigator.push
-                                (
-                                  context, 
-                                  MaterialPageRoute(builder: (context)
-                                  {
-                                    return new BuyPage();
-                                  })
-                                );
-                      },
-                      )
-                ],
-              ),
-            ),
-       );
+  Widget bottomNavigationBar1()
+  {
+  return CurvedNavigationBar
+  (
+    index: getPageIndex,   
+    color: Colors.pink,   
+    backgroundColor: Colors.white,
+    buttonBackgroundColor: Colors.pink,
+    height: 50.0,
+    items: <Widget>[
+      
+      Icon(Icons.gif, color:Colors.white,size: 27.0),
+      Icon(Icons.home,color: Colors.white, size: 27.0),
+      Icon(Icons.shopping_cart,color: Colors.white, size: 27.0),
+    ],
+    animationDuration: Duration(milliseconds: 300),
+    animationCurve: Curves.bounceInOut,
+    onTap: (index) {
+                       setState(() {
+                         getPageIndex = index;
+                       }); //Handle button tap
+                   },
+     );
   }
+ 
 }
