@@ -1,4 +1,5 @@
 
+
 import 'dart:io';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
@@ -242,7 +243,9 @@ class _MyHomePageState extends State<MyHomePage> {
                          getPageIndex = index;
                        }); //Handle button tap
                    },
+    
      );
   }
- 
+  
+  
 }
