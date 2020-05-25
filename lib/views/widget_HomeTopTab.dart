@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:health_tech_app1/views/widget_HomeForYouTabs.dart';
 
 class HomeTopTabs extends StatefulWidget {
 
@@ -99,7 +100,7 @@ class _HomeTopTabsState extends State<HomeTopTabs> with SingleTickerProviderStat
             controller: _tabController,
             children: <Widget>
             [
-              //  HomeForYouTabs(),
+                HomeForYouTabs(),
               //  HomeTopChartsTabs()
             ]
           ),

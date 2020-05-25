@@ -1,5 +1,9 @@
 import'package:flutter/material.dart';
+import 'package:health_tech_app1/views/widget_BooksTopTabs.dart';
+import 'package:health_tech_app1/views/widget_GamesTopTabs.dart';
 import 'package:health_tech_app1/views/widget_HomeTopTab.dart';
+import 'package:health_tech_app1/views/widget_moviesTopTabs.dart';
+import 'package:health_tech_app1/views/widget_musicTopTabs.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.child}) : super(key: key);
@@ -118,6 +122,10 @@ class _MyHomePageState extends State<MyHomePage> {
            children: <Widget>
            [
              HomeTopTabs(0xffff5722),
+             GamesTopTabs(0xff3f51b5),
+             MoviesTopTabs(0xffe91e63),
+             BooksTopTabs(0xff9c279b),
+             MusicTopTabs(0xff2196f3)
            ],
          ),
          
