@@ -66,28 +66,28 @@ class _HomeTopTabsState extends State<HomeTopTabs> with SingleTickerProviderStat
                 (
                   icon: Icon(FontAwesomeIcons.shapes,
                   color: _tabController.index== 2 ? Color(widget.colorVal):Colors.grey),
-                  child: Text('For You',
+                  child: Text('Categories',
                             style: TextStyle(color:_tabController.index==2?Color(widget.colorVal):Colors.grey),),
                 ),
                  Tab
                 (
                   icon: Icon(FontAwesomeIcons.solidBookmark,
                   color: _tabController.index==3?Color(widget.colorVal):Colors.grey),
-                  child: Text('For You',
+                  child: Text('Family',
                             style: TextStyle(color:_tabController.index==3?Color(widget.colorVal):Colors.grey),),
                 ),
                  Tab
                 (
                   icon: Icon(FontAwesomeIcons.solidStar,
                   color: _tabController.index==4?Color(widget.colorVal):Colors.grey),
-                  child: Text('For You',
+                  child: Text('Early Access',
                             style: TextStyle(color:_tabController.index==4?Color(widget.colorVal):Colors.grey),),
                 ),
                  Tab
                 (
                   icon: Icon(FontAwesomeIcons.lockOpen,
                   color: _tabController.index==5?Color(widget.colorVal):Colors.grey),
-                  child: Text('For You',
+                  child: Text('Editors Choice',
                             style: TextStyle(color:_tabController.index==5?Color(widget.colorVal):Colors.grey),),
                 )
               ]
