@@ -1,7 +1,8 @@
-/*
 import 'package:flutter/material.dart';
 import 'package:health_tech_app1/Data_Model/Data_Model_ObjectFile.dart';
 import 'package:health_tech_app1/utility/DBWebService_FirebaseAuthentication.dart';
+import 'package:health_tech_app1/views/widget_ForgotPassword.dart';
+
 
 class LoginRegisterPage extends StatefulWidget
 {
@@ -27,8 +28,8 @@ enum FormType
 }
 class _LoginRegisterState extends State<LoginRegisterPage>{
 
-  // DialogBox dialogBox = new DialogBox();
-  //UserID userID = new UserID();
+ // DialogBox dialogBox = new DialogBox();
+  
 
   final formKey = new GlobalKey<FormState>();
   FormType _formType = FormType.login;
@@ -61,10 +62,10 @@ class _LoginRegisterState extends State<LoginRegisterPage>{
               {
                 String userId = await widget.auth.SignIn(_email, _password);
                 dialogBox.information(context,"Congrulations","You are loggedIn successfully");
-                //setUserID(userId);
+               // user_ID.setUserID(userId);
                 
-                //print("login userId="+userId);
-                //print(getUserID());
+                print("login userId="+userId);
+                //print(user_ID.getUserID());
               
               }
               else
@@ -142,23 +143,12 @@ class _LoginRegisterState extends State<LoginRegisterPage>{
      return 
      [
         SizedBox(height:10.0,),
-        //logo(),
+        logo(),
         SizedBox(height:15.0),
 
         new TextFormField
         (
-          decoration: new InputDecoration
-                      (
-                        border: new OutlineInputBorder(
-                          borderRadius: new BorderRadius.circular(25.0),
-                          borderSide: new BorderSide(
-                            color: Colors.pink
-                          ),
-                        ),   
-                        suffixIcon:Icon(Icons.email),
-                        labelText: 'Enter Email'
-                           
-                      ),
+          decoration: new InputDecoration(icon:Icon(Icons.email),labelText: 'Email'),
           validator: (value)
           {
              return value.isEmpty?"Email is required":null;
@@ -173,17 +163,7 @@ class _LoginRegisterState extends State<LoginRegisterPage>{
         SizedBox(height:10.0,),
          new TextFormField
         (
-          decoration: new InputDecoration
-                      (
-                        border: new OutlineInputBorder(
-                            borderRadius: new BorderRadius.circular(25.0),
-                           borderSide: new BorderSide(
-                             color: Colors.pink
-                           ),
-                          
-                        ), 
-                        suffixIcon: Icon(Icons.lock), 
-                        labelText: 'Enter Password'),
+          decoration: new InputDecoration(icon:Icon(Icons.lock),labelText: 'Password'),
           obscureText: true,
            validator: (value)
           {
@@ -214,22 +194,21 @@ class _LoginRegisterState extends State<LoginRegisterPage>{
          child: Text("Login",style:TextStyle(color:Colors.white,fontSize:20.0)),
          //textColor: Colors.white,
          color: Colors.pink,
-          shape: RoundedRectangleBorder
-                 (
-                    borderRadius: BorderRadius.circular(24.0),
-                    //side: BorderSide(color: Colors.pink)
-                 ),
          onPressed: ()=>ValidateAndSubmit(),
+        ),
+
+         FlatButton
+        (
+           
+           child: Text("Forgot Password?",style: TextStyle(fontSize:14.0),),
+           textColor: Colors.pink,
+           onPressed:(){ForgotPasswordPage();},
         ),
 
         FlatButton
         (
-           child: Text("Not have an Account?Create Account",style: TextStyle(fontSize:16.0),),
+           child: Text("Not have an Account?Create Account",style: TextStyle(fontSize:14.0),),
            textColor: Colors.pink,
-            shape: RoundedRectangleBorder
-                 (
-                    borderRadius: BorderRadius.circular(24.0),
-                 ),
            onPressed:MoveToRegisterScreen,
         )
 
@@ -244,21 +223,13 @@ class _LoginRegisterState extends State<LoginRegisterPage>{
          child: Text("SignUp",style:TextStyle(color:Colors.white,fontSize:20.0)),
          //textColor: Colors.white,
          color: Colors.pink,
-         shape: RoundedRectangleBorder
-                 (
-                    borderRadius: BorderRadius.circular(24.0),
-                 ),
          onPressed: ()=>ValidateAndSubmit(),
         ),
 
         FlatButton
         (
-           child: Text("Already have an Account?Login",style: TextStyle(fontSize:16.0),),
+           child: Text("Already have an Account?Login",style: TextStyle(fontSize:14.0),),
            textColor: Colors.pink,
-            shape: RoundedRectangleBorder
-                 (
-                    borderRadius: BorderRadius.circular(24.0),
-                 ),
            onPressed:MoveToLoginScreen,
         )
 
@@ -280,4 +251,3 @@ class _LoginRegisterState extends State<LoginRegisterPage>{
          );
   }
 }
-*/
