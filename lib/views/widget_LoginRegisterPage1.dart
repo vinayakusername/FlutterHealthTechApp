@@ -86,6 +86,7 @@ class _LoginRegisterState extends State<LoginRegisterPage>{
          }
   }
 
+  
   void MoveToRegisterScreen()
   {
         formKey.currentState.reset();
@@ -202,7 +203,7 @@ class _LoginRegisterState extends State<LoginRegisterPage>{
            
            child: Text("Forgot Password?",style: TextStyle(fontSize:14.0),),
            textColor: Colors.pink,
-           onPressed:(){ForgotPasswordPage();},
+           onPressed:()=> ForgotPasswordPage(),
         ),
 
         FlatButton
@@ -214,6 +215,7 @@ class _LoginRegisterState extends State<LoginRegisterPage>{
 
       ]; 
     }
+   
     else
     {
     return 

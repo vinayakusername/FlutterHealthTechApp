@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:health_tech_app1/utility/DBWebService_FirebaseAuthentication.dart';
 import 'package:health_tech_app1/views/widget_homePage.dart';
-import 'package:health_tech_app1/views/widget_LoginRegisterPage.dart';
+import 'package:health_tech_app1/views/widget_LoginRegisterPage1.dart';
 
 
 //This class is used to check the state of user whether loggedIn or not.

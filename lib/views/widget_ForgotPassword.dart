@@ -99,7 +99,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
          //textColor: Colors.white,
          color: Colors.pink,
          //onPressed: ()=>ValidateAndSubmit(),
-         onPressed: (){LoginRegisterPage();},
+         onPressed: (){},
         ),
 
        
