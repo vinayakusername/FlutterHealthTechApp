@@ -1,4 +1,4 @@
-/*
+
 import 'package:flutter/material.dart';
 import 'package:health_tech_app1/Data_Model/Data_Model_ObjectFile.dart';
 import 'package:health_tech_app1/utility/DBWebService_FirebaseAuthentication.dart';
@@ -280,4 +280,3 @@ class _LoginRegisterState extends State<LoginRegisterPage>{
          );
   }
 }
-*/
