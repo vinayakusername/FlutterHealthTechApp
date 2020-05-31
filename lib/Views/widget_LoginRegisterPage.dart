@@ -143,11 +143,23 @@ class _LoginRegisterState extends State<LoginRegisterPage>{
      [
         SizedBox(height:10.0,),
         logo(),
-        SizedBox(height:15.0),
+        SizedBox(height:10.0),
 
         new TextFormField
         (
-          decoration: new InputDecoration(icon:Icon(Icons.email),labelText: 'Email'),
+          decoration: new InputDecoration
+                        (
+                          border: OutlineInputBorder
+                                   (
+                                      borderSide:BorderSide
+                                       (
+                                         color:Colors.pink
+                                       ),
+                                       borderRadius: BorderRadius.circular(10.0)  
+                                   ),
+                          suffixIcon:Icon(Icons.email),
+                          labelText: 'Email'
+                        ),
           validator: (value)
           {
              return value.isEmpty?"Email is required":null;
@@ -162,7 +174,19 @@ class _LoginRegisterState extends State<LoginRegisterPage>{
         SizedBox(height:10.0,),
          new TextFormField
         (
-          decoration: new InputDecoration(icon:Icon(Icons.lock),labelText: 'Password'),
+          decoration: new InputDecoration
+                           (
+                              border: OutlineInputBorder
+                                   (
+                                      borderSide:BorderSide
+                                       (
+                                         color:Colors.pink
+                                       ),
+                                       borderRadius: BorderRadius.circular(10.0)  
+                                   ),  
+                              suffixIcon:Icon(Icons.lock),
+                              labelText: 'Password'
+                            ),
           obscureText: true,
            validator: (value)
           {
@@ -190,6 +214,11 @@ class _LoginRegisterState extends State<LoginRegisterPage>{
       [
         RaisedButton
         (
+         shape: RoundedRectangleBorder
+                   (
+                    borderRadius: BorderRadius.circular(18.0),
+                            side: BorderSide(color: Colors.pink)
+                   ),
          child: Text("Login",style:TextStyle(color:Colors.white,fontSize:20.0)),
          //textColor: Colors.white,
          color: Colors.pink,
@@ -198,6 +227,11 @@ class _LoginRegisterState extends State<LoginRegisterPage>{
 
         FlatButton
         (
+            shape: RoundedRectangleBorder
+                   (
+                    borderRadius: BorderRadius.circular(18.0),
+                            side: BorderSide(color: Colors.pink)
+                   ),
            child: Text("Not have an Account?Create Account",style: TextStyle(fontSize:14.0),),
            textColor: Colors.pink,
            onPressed:MoveToRegisterScreen,
@@ -211,6 +245,11 @@ class _LoginRegisterState extends State<LoginRegisterPage>{
       [
         RaisedButton
         (
+          shape: RoundedRectangleBorder
+                   (
+                    borderRadius: BorderRadius.circular(18.0),
+                            side: BorderSide(color: Colors.pink)
+                   ),
          child: Text("SignUp",style:TextStyle(color:Colors.white,fontSize:20.0)),
          //textColor: Colors.white,
          color: Colors.pink,
@@ -219,6 +258,11 @@ class _LoginRegisterState extends State<LoginRegisterPage>{
 
         FlatButton
         (
+            shape: RoundedRectangleBorder
+                   (
+                    borderRadius: BorderRadius.circular(18.0),
+                            side: BorderSide(color: Colors.pink)
+                   ),
            child: Text("Already have an Account?Login",style: TextStyle(fontSize:14.0),),
            textColor: Colors.pink,
            onPressed:MoveToLoginScreen,
@@ -230,6 +274,20 @@ class _LoginRegisterState extends State<LoginRegisterPage>{
 
   Widget logo()
   {
+   return Center(
+        child: new Container(
+            width: 200,
+            height: 200,
+            decoration: new BoxDecoration(
+                shape: BoxShape.circle,
+                image: new DecorationImage(
+                    fit: BoxFit.cover,
+                    image: new AssetImage("images/login_photo.jpg")
+                )
+            )
+        ),
+      );
+    /*
        return new Hero
        (
          tag: 'Hero', 
@@ -239,7 +297,7 @@ class _LoginRegisterState extends State<LoginRegisterPage>{
             radius: 110.0,
             child: Image.asset("images/login_photo.jpg"),
          ),
-         );
+         ); */
   }
 }
 
