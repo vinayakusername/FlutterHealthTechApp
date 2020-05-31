@@ -224,7 +224,17 @@ class _LoginRegisterState extends State<LoginRegisterPage>{
          color: Colors.pink,
          onPressed: ()=>ValidateAndSubmit(),
         ),
-
+         FlatButton
+        (
+            shape: RoundedRectangleBorder
+                   (
+                    borderRadius: BorderRadius.circular(18.0),
+                            side: BorderSide(color: Colors.pink)
+                   ),
+           child: Text("Forgot Password?",style: TextStyle(fontSize:14.0),),
+           textColor: Colors.pink,
+           onPressed: (){},
+        ),
         FlatButton
         (
             shape: RoundedRectangleBorder
@@ -235,7 +245,11 @@ class _LoginRegisterState extends State<LoginRegisterPage>{
            child: Text("Not have an Account?Create Account",style: TextStyle(fontSize:14.0),),
            textColor: Colors.pink,
            onPressed:MoveToRegisterScreen,
-        )
+        ),
+       
+        textWidget(),
+        SizedBox(height:5.0),
+        socialMediaLoginLogo()
 
       ]; 
     }
@@ -276,8 +290,8 @@ class _LoginRegisterState extends State<LoginRegisterPage>{
   {
    return Center(
         child: new Container(
-            width: 200,
-            height: 200,
+            width: 160,
+            height: 155,
             decoration: new BoxDecoration(
                 shape: BoxShape.circle,
                 image: new DecorationImage(
@@ -298,6 +312,50 @@ class _LoginRegisterState extends State<LoginRegisterPage>{
             child: Image.asset("images/login_photo.jpg"),
          ),
          ); */
+  }
+  Widget textWidget()
+  {
+      return Center
+      (
+        child: new Text("or",style: TextStyle(fontSize:20.0,color: Colors.pink,))
+      );
+  } 
+
+  Widget socialMediaLoginLogo()
+  {
+    return Container
+    (
+      child: Row
+      (
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>
+        [
+        
+        Padding
+        (
+          padding: EdgeInsets.all(8.0),
+         child: IconButton
+            (
+              icon: Image.asset("images/googleIcon.jpg"),
+              iconSize: 40, 
+              onPressed: null
+            ),),
+
+        
+         Padding
+         (
+            padding: EdgeInsets.all(8.0),
+            child:IconButton
+            (
+              icon: Image.asset("images/facebookIcon.jpg"),
+              iconSize: 40, 
+              onPressed: null
+            )
+          ),
+       
+        ],
+      ),
+    );
   }
 }
 
