@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
-import 'package:health_tech_app1/Views/widget_HomePage.dart';
 import 'package:health_tech_app1/Views/widget_LoginRegisterPage.dart';
+import 'package:health_tech_app1/Views/widget_NaviagtionPage.dart';
 import 'package:health_tech_app1/utility/DBWebService_FireBase_Authentication.dart';
 
 
@@ -73,7 +73,7 @@ class _MappingPageState extends State<MappingPage>
        );
 
       case AuthStatus.signedIn:
-       return new MyHomePage
+       return new MyNavigationPage
        (
           auth:widget.auth,
           onSignedOut: _signedOut,
