@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:health_tech_app1/Views/widget_AppBarPage.dart';
 
 
 
@@ -14,6 +15,7 @@ class _MojoPageState extends State<MojoPage>{
   {
     return new Scaffold(
     
+     appBar: header(context,strTitle:"Mojo"),
      body: new Center(
        child: new Text('Mojo Page'),
      ),
