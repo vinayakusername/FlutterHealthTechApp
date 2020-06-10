@@ -11,6 +11,9 @@ import 'package:health_tech_app1/Views/widget_MojoPage.dart';
 final GoogleSignIn gSignIn = GoogleSignIn();
 
 class HomePage extends StatefulWidget {
+
+   logOutMethod() => createState().logOutUser();
+
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -120,8 +123,8 @@ class _HomePageState extends State<HomePage> {
        (
          children: <Widget>
          [
-           //DashBoardPage(),
-           RaisedButton.icon(onPressed: logOutUser, icon: Icon(Icons.close), label: Text("SignOut")),
+           DashBoardPage(),
+           //RaisedButton.icon(onPressed: logOutUser, icon: Icon(Icons.close), label: Text("SignOut")),
            MojoPage(),
            BuyProductPage()
            
