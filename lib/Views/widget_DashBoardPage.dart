@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:health_tech_app1/Views/widget_AppBar.dart';
 import 'package:health_tech_app1/Views/widget_HomePage.dart';
 
 class DashBoardPage extends StatefulWidget {
@@ -17,13 +18,12 @@ class _DashBoardPageState extends State<DashBoardPage> {
               (
                title: Container(
                         alignment: Alignment.center,
-                        child: Text("DashBoard Page",style: TextStyle(color: Colors.white,fontSize: 20.0),),
+                        child: Text("DashBoard",style: TextStyle(color: Colors.white,fontSize: 20.0),),
                  ),
                  backgroundColor: Colors.pink,
                   //elevation property is used to set elevation to AppBar in Android Device.
                  elevation: defaultTargetPlatform == TargetPlatform.android ?5.0 : 0.0,
                ),
-
       drawer: navigationDrawer(),         
     );
   }

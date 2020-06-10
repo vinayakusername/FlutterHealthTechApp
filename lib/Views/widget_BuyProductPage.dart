@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:health_tech_app1/Views/widget_AppBar.dart';
 
 class BuyProductPage extends StatefulWidget {
   @override
@@ -10,6 +11,7 @@ class _BuyProductPageState extends State<BuyProductPage> {
   Widget build(BuildContext context) {
     return Scaffold
     (
+      appBar: header(context,strTitle: "Buy Products"),
       body: Center(
         child: Text(
           "Buy Products",
