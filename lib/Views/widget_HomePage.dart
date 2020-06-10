@@ -143,8 +143,7 @@ class _HomePageState extends State<HomePage> {
                                BottomNavigationBarItem(icon: Icon(Icons.home)),
                                BottomNavigationBarItem(icon: Icon(Icons.gif,size:37.0)),
                                BottomNavigationBarItem(icon: Icon(Icons.shopping_cart,)),
-                              //  BottomNavigationBarItem(icon: Icon(Icons.favorite)),
-                              //  BottomNavigationBarItem(icon: Icon(Icons.person))
+                             
                              ] ,
                            ),
      );
