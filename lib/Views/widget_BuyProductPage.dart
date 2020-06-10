@@ -8,8 +8,15 @@ class BuyProductPage extends StatefulWidget {
 class _BuyProductPageState extends State<BuyProductPage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      
+    return Scaffold
+    (
+      body: Center(
+        child: Text(
+          "Buy Products",
+          style: TextStyle(color:Colors.pink),
+          textAlign: TextAlign.center,
+        ),
+      ),
     );
   }
 }

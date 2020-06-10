@@ -8,8 +8,15 @@ class MojoPage extends StatefulWidget {
 class _MojoPageState extends State<MojoPage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      
+     return Scaffold
+    (
+      body: Center(
+        child: Text(
+          "Mojo Page",
+          style: TextStyle(color:Colors.pink,fontSize: 20.0),
+          textAlign: TextAlign.center,
+        ),
+      ),
     );
   }
 }

@@ -141,10 +141,10 @@ class _HomePageState extends State<HomePage> {
                              items: 
                              [
                                BottomNavigationBarItem(icon: Icon(Icons.home)),
-                               BottomNavigationBarItem(icon: Icon(Icons.search)),
-                               BottomNavigationBarItem(icon: Icon(Icons.photo_camera,size:37.0)),
-                               BottomNavigationBarItem(icon: Icon(Icons.favorite)),
-                               BottomNavigationBarItem(icon: Icon(Icons.person))
+                               BottomNavigationBarItem(icon: Icon(Icons.gif,size:37.0)),
+                               BottomNavigationBarItem(icon: Icon(Icons.shopping_cart,)),
+                              //  BottomNavigationBarItem(icon: Icon(Icons.favorite)),
+                              //  BottomNavigationBarItem(icon: Icon(Icons.person))
                              ] ,
                            ),
      );
@@ -190,11 +190,11 @@ class _HomePageState extends State<HomePage> {
                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                  children: <Widget>
                  [
-                     Image.asset("images/googleIcon.jpg",width: 50.0,height: 50.0,),
+                     Image.asset("images/googleIcon.png",width: 50.0,height: 50.0,),
                      Text("Sign in With Google",style: TextStyle(color:Colors.white,fontSize:22.0),),
                      Opacity(
                          opacity: 0.0,
-                         child: Image.asset("images/googleIcon.jpg",width: 50.0,height: 50.0,),
+                         child: Image.asset("images/googleIcon.png",width: 50.0,height: 50.0,),
                      )
                  ],
               ),  
