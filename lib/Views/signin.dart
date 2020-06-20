@@ -50,6 +50,7 @@ class _SignInState extends State<SignIn> {
        backgroundColor: Colors.transparent,
        elevation: 0.0,
        brightness: Brightness.light,
+       centerTitle: true,
      ),
 
      body: _isLoading ? Container(
