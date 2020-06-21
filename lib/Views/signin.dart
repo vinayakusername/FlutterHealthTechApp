@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:health_tech_app1/Views/home.dart';
 import 'package:health_tech_app1/Views/signup.dart';
+import 'package:health_tech_app1/helper/functions.dart';
 import 'package:health_tech_app1/services/auth.dart';
 import 'package:health_tech_app1/widgets/widgets.dart';
 
@@ -31,7 +32,8 @@ class _SignInState extends State<SignIn> {
                 setState(() {
                               _isLoading = false;
                          });
-
+                
+                HelperFunctions.saveUserLoggedInDetails(isLoggedIn: true);
                 Navigator.pushReplacement(context, MaterialPageRoute(builder:(context) => Home()));
             }
        });
@@ -196,18 +198,7 @@ class _SignInState extends State<SignIn> {
              {
                 signIn();
              },
-            child: Container
-                      (
-                             padding: EdgeInsets.symmetric(vertical: 16.0),
-                             decoration: BoxDecoration
-                            (
-                              color: Colors.pink,
-                              borderRadius: BorderRadius.circular(30)
-                            ),
-                            width: MediaQuery.of(context).size.width-48,
-                            child: Text("Sign In",style: TextStyle(color:Colors.white,fontSize:16),),
-                            alignment: Alignment.center,
-                       ),
+            child: customButtonWidget(context: context, buttonName: "Sign In",)
             ),
            
             SizedBox(

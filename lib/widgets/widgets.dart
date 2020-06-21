@@ -17,3 +17,19 @@ Widget appBar(BuildContext context)
       ),
     );
 }
+
+Widget customButtonWidget({BuildContext context,String buttonName, buttonWidth})
+{
+    return Container
+             (
+               padding: EdgeInsets.symmetric(vertical: 16.0),
+               decoration: BoxDecoration
+               (
+                 color: Colors.pink,
+                 borderRadius: BorderRadius.circular(30)
+               ),
+               width: buttonWidth != null ? buttonWidth : MediaQuery.of(context).size.width-48,
+               child: Text(buttonName,style: TextStyle(color:Colors.white,fontSize:16),),
+               alignment: Alignment.center,
+             );
+}
