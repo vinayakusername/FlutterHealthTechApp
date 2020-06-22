@@ -133,6 +133,7 @@ class _AddQuestionState extends State<AddQuestion> {
 
                 Row
                 (
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>
                   [
                   GestureDetector

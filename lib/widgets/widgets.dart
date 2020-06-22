@@ -10,9 +10,9 @@ Widget appBar(BuildContext context)
         ),
         children: <TextSpan>[
           TextSpan(text: 'Quiz', style: TextStyle(fontWeight: FontWeight.w600
-              , color: Colors.black54)),
+              , color: Colors.deepPurple)),
           TextSpan(text: 'App', style: TextStyle(fontWeight: FontWeight.w600
-              , color: Colors.blue)),
+              , color: Colors.pink)),
         ],
       ),
     );

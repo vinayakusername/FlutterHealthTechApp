@@ -26,7 +26,13 @@ bool _isLoggedIn = false;
 
 checkUserLoggedInStatus() async
 {
-  _isLoggedIn = await HelperFunctions.getUserLoggedInDetails();
+   await HelperFunctions.getUserLoggedInDetails().then((val)
+   {
+     setState(() {
+       _isLoggedIn = val;
+     });
+     
+   });
 }
 
   @override
