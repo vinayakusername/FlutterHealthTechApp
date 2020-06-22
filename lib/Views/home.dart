@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:health_tech_app1/Views/create_quiz.dart';
+import 'package:health_tech_app1/Views/play_quiz.dart';
 import 'package:health_tech_app1/services/database.dart';
 import 'package:health_tech_app1/widgets/widgets.dart';
 
@@ -18,7 +19,9 @@ class _HomeState extends State<Home> {
   {
     databaseService.getQuizData().then((val)
     {
-      quizStream = val;
+      setState(() {
+        quizStream = val;
+      });  
     });
     super.initState();
   } 
@@ -77,6 +80,7 @@ class _HomeState extends State<Home> {
                               imgUrl: snapshot.data.documents[index].data['quizImageUrl'],
                               title: snapshot.data.documents[index].data['quizTitle'],
                               desc: snapshot.data.documents[index].data['quizDescription'],
+                              quizid: snapshot.data.documents[index].data['quizId']
                             );
 
                            });
@@ -88,20 +92,21 @@ class _HomeState extends State<Home> {
 
 class QuizTitle extends StatelessWidget {
 
-  final String imgUrl,title,desc;
-  QuizTitle({@required this.imgUrl, @required this.title, @required this.desc});
+  final String imgUrl,title,desc,quizid;
+  QuizTitle({@required this.imgUrl, @required this.title, @required this.desc,
+   @required this.quizid});
 
   @override
   Widget build(BuildContext context) {
 
      return GestureDetector(
-      // onTap: (){
-      //   Navigator.push(context, MaterialPageRoute(
-      //     builder: (context) => QuizPlay(id)
-      //   ));
-      // },
+      onTap: (){
+        Navigator.push(context, MaterialPageRoute(
+          builder: (context) => PlayQuiz(quizid)
+        ));
+      },
       child: Container(
-        padding: EdgeInsets.all(6.0),
+        margin: EdgeInsets.only(bottom:8.0),
         height: 150,
         child: ClipRRect(
           borderRadius: BorderRadius.circular(8),
@@ -110,7 +115,7 @@ class QuizTitle extends StatelessWidget {
               Image.network(
                 imgUrl,
                 fit: BoxFit.cover,
-                width: MediaQuery.of(context).size.width,
+                width: MediaQuery.of(context).size.width-48,
               ),
               Container(
                 color: Colors.black26,
@@ -125,7 +130,7 @@ class QuizTitle extends StatelessWidget {
                             color: Colors.white,
                             fontWeight: FontWeight.w500),
                       ),
-                      SizedBox(height: 4,),
+                      SizedBox(height: 5,),
                       Text(
                         desc,
                         style: TextStyle(
