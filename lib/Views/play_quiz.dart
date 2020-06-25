@@ -58,9 +58,9 @@ class _PlayQuizState extends State<PlayQuiz> {
 
       options.shuffle();
       questionModel.option1 = options[0];
-      questionModel.option1 = options[1];
-      questionModel.option1 = options[2];
-      questionModel.option1 = options[3];
+      questionModel.option2 = options[1];
+      questionModel.option3 = options[2];
+      questionModel.option4 = options[3];
       questionModel.correctOption = questionSnapshot.data["option1"];
       questionModel.answered = false;
 
