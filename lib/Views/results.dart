@@ -25,12 +25,12 @@ class _ResultsState extends State<Results> {
           children: <Widget>
           [
             Text("${widget.correct}/${widget.total}",style: TextStyle(fontSize: 25.0),),
-            SizedBox(height: 8.0,),
+            SizedBox(height: 12.0,),
             Text("You answered ${widget.correct} answers correctly and ${widget.incorrect} incorrectly",
             style: TextStyle(fontSize:16.0,color: Colors.grey),
             textAlign: TextAlign.center,
             ),
-            SizedBox(height: 6.0,),
+            SizedBox(height: 15.0,),
             GestureDetector
             (
               onTap: ()
