@@ -14,7 +14,9 @@ class Results extends StatefulWidget {
 class _ResultsState extends State<Results> {
   @override
   Widget build(BuildContext context) {
-    return Container
+    return Scaffold
+    ( 
+    body:Container
     (
       height: MediaQuery.of(context).size.height,
       child: Center
@@ -30,7 +32,7 @@ class _ResultsState extends State<Results> {
             style: TextStyle(fontSize:16.0,color: Colors.grey),
             textAlign: TextAlign.center,
             ),
-            SizedBox(height: 15.0,),
+            SizedBox(height: 20.0,),
             GestureDetector
             (
               onTap: ()
@@ -45,6 +47,7 @@ class _ResultsState extends State<Results> {
         ),
       ),
       
+    )
     );
   }
 }
