@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+//import 'package:health_tech_app1/Views/home_screen.dart';
 import 'package:health_tech_app1/Views/widget_playVideo.dart';
+
 
 
 void main() => runApp(MyApp());
@@ -17,6 +19,7 @@ class MyApp extends StatelessWidget {
       ),
       //home: VideoPlayerDemo(),
       home: PlayVideo(),
+      //home: HomeScreen(),
 
       
     );
