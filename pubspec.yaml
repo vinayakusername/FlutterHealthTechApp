@@ -25,12 +25,16 @@ dependencies:
   cupertino_icons: ^0.1.2
   cloud_firestore: ^0.9.13
   intl: ^0.15.7
-  image_picker:
+  image_picker: ^0.6.7+2
   firebase_auth:
   firebase_database:
   firebase_storage:
   font_awesome_flutter: ^8.2.0
   curved_navigation_bar: ^0.3.2
+
+  chewie: ^0.9.7
+  video_player: ^0.10.11+1
+  
 
 dev_dependencies:
   flutter_test:
