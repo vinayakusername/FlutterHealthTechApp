@@ -105,7 +105,7 @@ class _HomePageState extends State<HomePage> {
                       (
                         videoPlayerController: VideoPlayerController.file(videoFile),
                         aspectRatio: 3/2,
-                        autoPlay: true,
+                        //autoPlay: true,
                         autoInitialize: true,
                         looping: true
                       ),
