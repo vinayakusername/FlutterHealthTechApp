@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:health_tech_app1/Views/widget_searchBarPage.dart';
+import 'package:health_tech_app1/Views/widget_HomePage1.dart';
 
 void main() => runApp(MyApp());
 
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       ),
       //home: LoginRegisterPage(),
 
-      home: SearchBarPage(),
+      home: HomePage(),
     );
       
      
