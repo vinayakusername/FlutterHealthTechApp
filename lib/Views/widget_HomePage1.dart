@@ -1,7 +1,4 @@
 
-
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:health_tech_app1/Views/home_gallery_sub_page.dart';
 import 'package:health_tech_app1/Views/home_tutorial_sub_page.dart';
