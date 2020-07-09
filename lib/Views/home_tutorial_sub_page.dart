@@ -115,6 +115,7 @@ class _HomeTutorialsSubPageState extends State<HomeTutorialsSubPage> {
 class HomeSliverAppBar extends StatelessWidget {
 
    final String _title;
+   //final TabController _tabController;
    HomeSliverAppBar(this._title);
 
   @override
@@ -139,6 +140,24 @@ class HomeSliverAppBar extends StatelessWidget {
               background: Image.network('https://i.ytimg.com/vi/8pLunejSTnw/maxresdefault.jpg',
                fit:BoxFit.cover),
             ),
+            /*
+            bottom: TabBar
+            (
+              //labelColor: Colors.black,
+              //indicatorColor: Colors.black,
+              controller: _tabController,
+              tabs: <Widget>
+              [
+                Tab
+                 (
+                  text: 'Tutorials'
+                 ),
+                Tab
+                 (
+                  text: 'Gallery',
+                 )
+              ]
+            ),*/
           );
   }
 }

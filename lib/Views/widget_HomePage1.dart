@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:health_tech_app1/Views/home_gallery_sub_page.dart';
 import 'package:health_tech_app1/Views/home_tutorial_sub_page.dart';
+import 'package:health_tech_app1/delegate/sliver_persistent_header_delegate_impl.dart';
+import 'package:tuple/tuple.dart';
 //import 'package:tuple/tuple.dart';
 
 class HomePage extends StatefulWidget {
@@ -9,74 +11,81 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin {
 
-  int _selectedPage =0;
-  PageController _pageController = PageController();
-  final _pages =
+  final List<Tuple3> _pages =
   [
-    HomeTutorialsSubPage(),
-    HomeGallerySubPage()
+    Tuple3('Tutorials',HomeTutorialsSubPage(),Icon(Icons.video_library)),
+    Tuple3('Gallery',HomeGallerySubPage(),Icon(Icons.image))
   ];
+
+  TabController _tabController;
+
+  @override
+  void initState()
+  {
+    _tabController = TabController(length: _pages.length, vsync: this);
+    _tabController.addListener(()=>setState(() {}));
+    super.initState();
+  }
+
+  @override
+  void dispose() 
+  {
+    _tabController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold
-    (
-      
-     body:NestedScrollView
-     (
-      headerSliverBuilder:(BuildContext contexxt,bool innerBoxIsScrolled)
-      {
-        return <Widget>
-        [
-          HomeSliverAppBar(_selectedPage == 0 ? 'Tutorial' : 'Gallery' )
-        ];
-      } ,
-      body: PageView
-       (
-         children: _pages,
-         onPageChanged: (index)
+      (
+     
+       body: NestedScrollView(
+         headerSliverBuilder: (BuildContext context,bool innerBoxIsScrolled)
          {
-            setState(() 
-            {
-              _selectedPage = index;  
-            });
+           return <Widget>
+           [
+             HomeSliverAppBar(_pages[_tabController.index].item1),
+             SliverPersistentHeader
+             (
+               delegate: SliverPersistentHeaderDelegateImpl
+               (
+               color: Colors.pink,
+              tabBar: TabBar
+               (
+                 labelColor: Colors.white,
+                 indicatorColor: Colors.white,
+                 controller: _tabController,
+                 tabs: _pages.map<Tab>((Tuple3 page)=> Tab(text:page.item1)).toList()
+               ),
+               ),
+             ),
+           ];
          },
-         controller: _pageController,
+         body: TabBarView
+         (
+           controller: _tabController,
+           children: _pages.map<Widget>((Tuple3 page)=> page.item2).toList()
+         ),
        ),
-     ),
-      
-     bottomNavigationBar: BottomNavigationBar
-     (
-       type: BottomNavigationBarType.shifting,
-
-       items: 
-       [
-         BottomNavigationBarItem
-         (
-           
-           icon: Icon(Icons.video_library),
-           title: Text('Tutorials')
-         ),
-          BottomNavigationBarItem
-         (
-           
-           icon: Icon(Icons.image),
-           title: Text('Gallery')
-         ),
-       ],
-       currentIndex: _selectedPage,
-       onTap: (index)
-       {
-         setState(() 
-         {
-           _selectedPage = index; 
-           _pageController.animateToPage(_selectedPage, duration: Duration(milliseconds: 300), 
-             curve: Curves.bounceInOut);
-         });
-       },
-     ),
+       /*
+       bottomNavigationBar: Container
+       (
+         color: Colors.pink,
+         child: TabBar
+                 (
+                   unselectedLabelColor: Colors.grey,
+                   labelColor: Colors.white,
+                   indicatorColor: Colors.white,
+                   controller: _tabController,
+                   tabs: _pages.map<Tab>((Tuple3 page)=> Tab
+                   (
+                     text:page.item1,
+                     icon:page.item3,
+                   )).toList()
+                 ),
+       ),*/
     );
   }
 }
