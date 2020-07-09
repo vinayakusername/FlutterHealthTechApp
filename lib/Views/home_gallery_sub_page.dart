@@ -1,7 +1,6 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
-//import 'package:health_tech_app1/Views/home_tutorial_sub_page.dart';
+
 
 class HomeGallerySubPage extends StatefulWidget {
   @override
@@ -32,7 +31,7 @@ class _HomeGallerySubPageState extends State<HomeGallerySubPage> {
   {
      return GridView.count
      (
-       crossAxisCount: 2,
+       crossAxisCount: 3,
        mainAxisSpacing: 10,
        crossAxisSpacing: 10,
        padding: const EdgeInsets.all(10.0),
@@ -41,15 +40,18 @@ class _HomeGallerySubPageState extends State<HomeGallerySubPage> {
                  .toList()
      );
   }
-   //This method is used to load the all images at a time from assets folder
+   
    Future<List<String>> _loadImagePaths(BuildContext context) async {
-      final String manifestContentJson = await DefaultAssetBundle
-                                                 .of(context)
-                                                 .loadString('AssetsManifest.json');
+    final String manifestContentJson =
+        await DefaultAssetBundle.of(context).loadString('AssetManifest.json');
 
-      final Map<String,dynamic> manifestMap = json.decode(manifestContentJson);
-      return manifestMap.keys.where((String key)=>key.contains('assets/images/')).toList();
-   }
+    final Map<String, dynamic> manifestMap = json.decode(manifestContentJson);
+
+    return manifestMap.keys
+        .where((String key) => key.contains('assets/images/'))
+        .toList();
+  }
+   
 
    Image _buildImageWidget(String imagePath)
    {
