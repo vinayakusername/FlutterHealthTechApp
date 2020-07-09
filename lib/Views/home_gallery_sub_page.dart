@@ -11,12 +11,14 @@ class HomeGallerySubPage extends StatefulWidget {
 class _HomeGallerySubPageState extends State<HomeGallerySubPage> {
   @override
   Widget build(BuildContext context) {
+
     return FutureBuilder
     (
       future: _loadImagePaths(context),
-      builder: (BuildContext context,AsyncSnapshot <List<String>> imagePathsSnapshot)
+      builder: (BuildContext context,AsyncSnapshot<List<String>> imagePathsSnapshot)
       {
-        if(imagePathsSnapshot.connectionState==ConnectionState.done && imagePathsSnapshot.hasData)
+        if(imagePathsSnapshot.connectionState==ConnectionState.done && 
+        imagePathsSnapshot.hasData)
         {
           return _buildContent(imagePathsSnapshot.data);
         }
@@ -31,9 +33,12 @@ class _HomeGallerySubPageState extends State<HomeGallerySubPage> {
      return GridView.count
      (
        crossAxisCount: 2,
+       mainAxisSpacing: 10,
+       crossAxisSpacing: 10,
+       padding: const EdgeInsets.all(10.0),
        children: imagePaths
-       .map<Widget>((String imagePath)=>_buildImageWidget(imagePath))
-       .toList()
+                 .map<Widget>((String imagePath) =>_buildImageWidget(imagePath))
+                 .toList()
      );
   }
    //This method is used to load the all images at a time from assets folder
