@@ -1,5 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:health_tech_app1/Views/home_gallery_detail_page.dart';
+import 'package:health_tech_app1/components/home_gallery_image_widget.dart';
 
 
 class HomeGallerySubPage extends StatefulWidget {
@@ -27,6 +29,7 @@ class _HomeGallerySubPageState extends State<HomeGallerySubPage> {
   //   );
   // }
 
+// Build Method for CustomScrollView with Slivers(SliverGrid)
   @override
   Widget build(BuildContext context) {
 
@@ -71,13 +74,33 @@ SliverGrid _buildContent(List<String>imagePaths)
        (
          (BuildContext context,int index)
          {
-           return _buildImageWidget(imagePaths[index]);
+           return HomeGalleryImageWidget
+           (
+             imagePath: imagePaths[index],
+             onImageTap: ()=> Navigator.push
+             (
+               context, 
+               _createGalleryDetailRoute(imagePaths,index)
+             ),
+           );
          },
          childCount:imagePaths.length,
        ),
       
      );
   }
+
+   MaterialPageRoute _createGalleryDetailRoute(List<String> imagePaths,int index)
+   {
+       return MaterialPageRoute
+       (
+         builder: (context) => HomeGalleryDetailPage
+         (
+           imagePaths: imagePaths,
+           currentIndex: index,
+         )
+       );
+   }
 
   // GridView _buildContent(List<String>imagePaths)
   // {
@@ -231,34 +254,5 @@ SliverGrid _buildContent(List<String>imagePaths)
         .where((String key) => key.contains('assets/images/'))
         .toList();
   }
-   
-
-   Widget _buildImageWidget(String imagePath)
-   {
-     return Container(
-       decoration: BoxDecoration
-       (
-         boxShadow: 
-         [
-           BoxShadow
-           (
-             color: Colors.black,
-             offset: Offset(2,2),
-             spreadRadius: 2,
-             blurRadius: 5
-           )
-         ],
-         borderRadius: BorderRadius.all(Radius.circular(10))
-       ),
-       child: ClipRRect
-       (
-         borderRadius: BorderRadius.all(Radius.circular(10)),
-         child: Image.asset
-         (
-           imagePath,
-           fit: BoxFit.cover
-         ),
-       ),
-     );
-   }
+  
 }
