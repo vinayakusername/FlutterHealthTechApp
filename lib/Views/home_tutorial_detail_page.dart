@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:health_tech_app1/components/hero_widget.dart';
 import 'package:video_player/video_player.dart';
 
+
 class HomeTutorialDetailPage extends StatefulWidget {
 
   final Object heroTag;
@@ -27,11 +28,15 @@ class _HomeTutorialDetailPageState extends State<HomeTutorialDetailPage> {
   
   
   ChewieController _chewieController;
+ 
 
   @override
   void initState()
   {
     super.initState();
+
+  
+
      _chewieController = ChewieController
     (
       videoPlayerController: VideoPlayerController.network(widget.videoUrl),
@@ -106,7 +111,7 @@ class _HomeTutorialDetailPageState extends State<HomeTutorialDetailPage> {
        }, 
      );
   }
-  
+ 
   Chewie _buildHeroWidgetContent() 
   {
      return Chewie
@@ -120,6 +125,7 @@ class _HomeTutorialDetailPageState extends State<HomeTutorialDetailPage> {
   {
     _chewieController.videoPlayerController.dispose();
     _chewieController.dispose();
+    
     super.dispose();
   }
 }

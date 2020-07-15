@@ -20,17 +20,17 @@ class _HomeTutorialsSubPageState extends State<HomeTutorialsSubPage> {
     const Tuple3<String, String,String>(
       'http://himdeve.com/wp-content/uploads/2020/01/1_1_simple_webview_en_banner.jpg',
       'Flutter Tutorials – #1.1 – First App – Simple WebView',
-      'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'
+      'https://www.youtube.com/watch?v=_pss8FqqjTI'
     ),
     const Tuple3<String, String,String>(
       'https://himdeve.com/wp-content/uploads/2020/01/1_2_webview_controller_en_banner.jpg',
       'Flutter Tutorials – #1.2 – WebView Controller – Completer, Future Builder, Await – Async',
-      'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'
+      'https://www.youtube.com/watch?v=_pss8FqqjTI'
     ),
     const Tuple3<String, String,String>(
       'https://himdeve.com/wp-content/uploads/2020/01/1_3_webview_javascript_en_banner.jpg',
       'Flutter Tutorial – #1.3 – WebView – Navigation Controls, Javascript communication',
-      'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'
+      'https://www.youtube.com/watch?v=_pss8FqqjTI'
     ),
     const Tuple3<String, String,String>(
       'https://himdeve.com/wp-content/uploads/2020/01/1_4_drawer_en_banner_final.jpg',
