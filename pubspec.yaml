@@ -35,6 +35,10 @@ dependencies:
   photo_view: ^0.9.2
   carousel_slider: ^1.4.1
   cached_network_image: ^2.0.0
+  
+  chewie: ^0.9.10
+  video_player: ^0.10.9
+  file_picker: ^1.6.3+2
 
 dev_dependencies:
   flutter_test:
