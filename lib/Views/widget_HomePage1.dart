@@ -2,9 +2,10 @@
 import 'package:flutter/material.dart';
 import 'package:health_tech_app1/Views/home_gallery_sub_page.dart';
 import 'package:health_tech_app1/Views/home_tutorial_sub_page.dart';
+import 'package:health_tech_app1/components/home_sliverAppBar_widget.dart';
 import 'package:health_tech_app1/delegate/sliver_persistent_header_delegate_impl.dart';
 import 'package:tuple/tuple.dart';
-//import 'package:tuple/tuple.dart';
+
 
 class HomePage extends StatefulWidget {
   @override
