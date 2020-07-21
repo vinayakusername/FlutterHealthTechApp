@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:health_tech_app1/Views/widget_dashBoardPage.dart';
+import 'package:health_tech_app1/Views/widget_dashBoardPage1.dart';
+//import 'package:health_tech_app1/Views/widget_dashBoardPage.dart';
+import 'package:health_tech_app1/Views/widget_loginPage.dart';
+import 'package:health_tech_app1/Views/widget_signupPage.dart';
 
 void main() => runApp(MyApp());
 
@@ -16,7 +19,14 @@ class MyApp extends StatelessWidget {
       ),
       //home: LoginRegisterPage(),
 
-      home: DashBoardPage(),
+      home: LoginPage(),
+       routes: <String,WidgetBuilder>
+      {
+        '/landingPage':(BuildContext context)=> new MyApp(),
+        '/signup':(BuildContext context) => new SignUpPage(),
+        '/dashBoardPage':(BuildContext context) => new DashBoardPage1()
+      },
+     
     );
       
      
