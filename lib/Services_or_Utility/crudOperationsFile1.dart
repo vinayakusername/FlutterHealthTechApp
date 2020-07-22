@@ -52,6 +52,16 @@ class CrudOperationMethods
     return await Firestore.instance.collection('CarInformation').snapshots();
   }
 
+  getSubCollectionCarData(docId) async
+  {
+    return await Firestore.instance
+                          .collection('CarInformation')
+                          .document(docId).
+                          collection('CarDetails')
+                          .snapshots();
+  }
+
+
   updateData(selectedDocId,newValues)
   {
       Firestore.instance.collection('CarInformation')

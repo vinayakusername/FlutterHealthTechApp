@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:health_tech_app1/Services_or_Utility/crudOperationsFile1.dart';
+import 'package:health_tech_app1/Views/widget_carDetailPage.dart';
 
 class DashBoardPage1 extends StatefulWidget {
   @override
@@ -102,19 +103,29 @@ class _DashBoardPage1State extends State<DashBoardPage1> {
          stream: carsInfo,
          builder: (context,snapshot)
          {
-           return ListView.builder
+           return snapshot.data == null? 
+               Center(child: CircularProgressIndicator()):
+           ListView.builder
            (
              itemCount: snapshot.data.documents.length,
              itemBuilder: (context,index)
              {
-               if(snapshot.data == null) return CircularProgressIndicator();
+               
                return ListTile
                (
                  title: Text(snapshot.data.documents[index].data['carName']),
                  subtitle: Text(snapshot.data.documents[index].data['color']),
                  onTap: () 
                  {
-                   updateDialog(context, snapshot.data.documents[index].documentID);
+                   //updateDialog(context, snapshot.data.documents[index].documentID);
+                   Navigator.push
+                   (
+                     context, MaterialPageRoute
+                   (
+                     builder:(context)=> CarDetailPage(snapshot.data.documents[index].documentID)
+                   )
+                   );
+                   
                  },
                  onLongPress: ()
                  {
