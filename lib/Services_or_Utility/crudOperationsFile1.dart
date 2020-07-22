@@ -61,6 +61,15 @@ class CrudOperationMethods
                           .snapshots();
   }
 
+  getCarData() async
+  {
+    return await Firestore.instance
+                          .collection('CarInformation')
+                          .document('NgjtV2O00Sd9f60jbbJX')
+                          .collection('CarDetails')
+                          .snapshots();
+  }
+
 
   updateData(selectedDocId,newValues)
   {
