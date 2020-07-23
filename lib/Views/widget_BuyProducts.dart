@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:health_tech_app1/Services_or_Utility/crudOperationsFile1.dart';
 import 'package:health_tech_app1/models/model_productData.dart';
 
@@ -13,7 +14,7 @@ class _BuyProductState extends State<BuyProduct> {
 
 
  Stream productData;
- Product product = new Product();
+ //Product product = new Product();
 
 @override
 void initState()
@@ -27,23 +28,23 @@ void initState()
          });
    });
   
-   print(product.price);
-   print(product.company);
+  //  print(product.price);
+  //  print(product.company);
 
    super.initState();
 }
 
 
- Product getProductModelFromDataSnapshot(DocumentSnapshot productData)
-  {
-     //Product product = new Product();
+//  Product getProductModelFromDataSnapshot(DocumentSnapshot productData)
+//   {
+//      //Product product = new Product();
      
-      product.model= productData.data['Model_No'];
-      product.price = productData.data['price'];
-      product.company = productData.data['company'];
+//       product.model= productData.data['Model_No'];
+//       product.price = productData.data['price'];
+//       product.company = productData.data['company'];
      
-      return product;
-  }
+//       return product;
+//   }
 
 
    _logOut()
@@ -77,32 +78,110 @@ void initState()
          )
         ],
       ),
-      body: _scrollContainerList(),  
+      body: ListView
+       (
+        scrollDirection: Axis.vertical,
+        children: <Widget>
+        [
+          SizedBox(height:10.0),
+          CarProducts(),
+          //SizedBox(height:20.0),
+          //RecommendedApps()
+        ],
+      ),
     );
   }
 
-  Widget _scrollContainerList()
+  Widget CarProducts()
   {
-      return SingleChildScrollView
-      (
-        child: Column
-        (
-          children: <Widget>
-          [
-            Container
-            (
-              padding: const EdgeInsets.all(10.0),
-              child: Text('Cars'),
-            ),
-            SizedBox(height:5.0),
-            _buildCarList()
-
-          ],
-        ),
-      );
+      return Material(
+      color: Colors.white,
+      elevation: 14.0,
+      shadowColor: Color(0x802196F3),
+      child: Column(
+        children: <Widget>[
+          Padding(
+            padding: EdgeInsets.all(8.0),
+            child: labelContainer('Car'),
+          ),
+          Padding(
+            padding: EdgeInsets.all(8.0),
+            child: carsRecommendedContainer(),
+          ),
+        ],
+      ),
+    );
   }
 
-  Widget _buildCarList()
+  Widget labelContainer(String labelVal) {
+    return Container(
+      height: 30.0,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          Text(
+            labelVal,
+            style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20.0),
+          ),
+          Text(
+            'MORE',
+            style: TextStyle(color: Colors.green,fontWeight: FontWeight.bold,fontSize: 18.0),
+          ),
+        ],
+      ),
+    );
+  }
+
+
+ Widget imageSection(String imageVal, String priceVal,String companyVal) {
+    return Container
+    (
+      width: 90.0,
+      height: 150.0,
+      margin: EdgeInsets.only(right:15.0),
+      child: Column(
+        children: <Widget>[
+          Container(
+            height: 100.0,
+            width: 100.0,
+            decoration: new BoxDecoration(
+              image: DecorationImage(
+                image: new NetworkImage(imageVal),
+                fit: BoxFit.fill,
+              ),
+              borderRadius: BorderRadius.circular(20.0),
+            ),
+          ),
+          SizedBox(
+            height: 10.0,
+          ),
+          Text(
+            priceVal,
+            style: TextStyle(
+                color: Colors.black, fontWeight: FontWeight.bold, fontSize: 16.0),
+          ),
+          SizedBox(
+            height: 10.0,
+          ),
+          Text(
+            companyVal,
+            style: TextStyle(
+                color: Colors.black, fontWeight: FontWeight.bold, fontSize: 16.0),
+          ),
+          // Row(children: <Widget>[
+          //   Text(
+          //   companyVal,
+          //   style: TextStyle(
+          //       color: Colors.black, fontWeight: FontWeight.bold,),
+          // ),
+          // Icon(FontAwesomeIcons.solidStar,size: 10.0,),
+          // ],)
+        ],
+      ),
+    );
+  }
+
+  Widget carsRecommendedContainer()
   {
     if(productData!=null)
     {
@@ -113,65 +192,29 @@ void initState()
          {
            return snapshot.data == null ? 
            Center(child: CircularProgressIndicator()):
-           ListView.builder
+           Container
            (
-             scrollDirection: Axis.horizontal,
-             itemCount: snapshot.data.documents.length,
-             itemBuilder: (context,index)
-             {
-               return _buildCard
-               (
-                 getProductModelFromDataSnapshot(snapshot.data.documents[index])
-               );
-             }
+              height: 160.0,
+             child: ListView.builder
+             (
+               scrollDirection: Axis.horizontal,
+               itemCount: snapshot.data.documents.length,
+               itemBuilder: (context,index)
+               {
+                return imageSection
+                  (
+                   snapshot.data.documents[index].data['image'],
+                   snapshot.data.documents[index].data['price'],
+                   snapshot.data.documents[index].data['company']
+                  );
+                
+               }
+             ),
            );
          }
        );
     }
   }
 
-  Widget _buildCard(Product productModel)
-  {
-      return Container
-      (
-        width: 200,
-        height: 200,
-       child: Card(
-               shape: RoundedRectangleBorder(
-               borderRadius: BorderRadius.circular(15.0),
-         ),
-        color: Colors.pink,
-        elevation: 10,
-        child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>
-        [
-          Text(
-                productModel.model  ,
-                style: TextStyle(
-                              fontSize: 18,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w500),
-              ),
-            SizedBox(height: 5,),
-            Text(
-                 productModel.price,
-                 style: TextStyle(
-                              fontSize: 13,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w500),
-                ),
-            SizedBox(height: 5,),
-            Text(
-                  productModel.company,
-                  style: TextStyle(
-                              fontSize: 13,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w500),
-                )
-        ],
-      ),
-    ),
-      );
-  }
+  
 }
