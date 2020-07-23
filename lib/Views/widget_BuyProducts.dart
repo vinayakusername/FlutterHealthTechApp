@@ -27,24 +27,26 @@ void initState()
              productData = value;  
          });
    });
-  
-  //  print(product.price);
-  //  print(product.company);
-
    super.initState();
 }
 
 
-//  Product getProductModelFromDataSnapshot(DocumentSnapshot productData)
-//   {
-//      //Product product = new Product();
+  getProductModelFromDataSnapshot(DocumentSnapshot productSnapshot)
+  {
+     /*This statement also works by initializing variables of model class without use of constructor*/
+      // product.imageUrl= productSnapshot.data['image'];
+      // product.price = productSnapshot.data['price'];
+      // product.company = productSnapshot.data['company'];
+    /*This statement also works with the help of constructor,initializing values to variables through constructor*/  
+   Product product =   Product
+                       (
+                         productSnapshot.data['image'],
+                         productSnapshot.data['price'],
+                         productSnapshot.data['company'],
+                       );
      
-//       product.model= productData.data['Model_No'];
-//       product.price = productData.data['price'];
-//       product.company = productData.data['company'];
-     
-//       return product;
-//   }
+      return imageSection(product.imageUrl, product.price, product.company);
+  }
 
 
    _logOut()
@@ -201,12 +203,13 @@ void initState()
                itemCount: snapshot.data.documents.length,
                itemBuilder: (context,index)
                {
-                return imageSection
-                  (
-                   snapshot.data.documents[index].data['image'],
-                   snapshot.data.documents[index].data['price'],
-                   snapshot.data.documents[index].data['company']
-                  );
+                // return imageSection
+                //   (
+                //    snapshot.data.documents[index].data['image'],
+                //    snapshot.data.documents[index].data['price'],
+                //    snapshot.data.documents[index].data['company']
+                //   );
+                 return getProductModelFromDataSnapshot(snapshot.data.documents[index]);
                 
                }
              ),

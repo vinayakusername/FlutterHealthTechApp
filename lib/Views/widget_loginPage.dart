@@ -20,7 +20,7 @@ class _LoginPageState extends State<LoginPage> {
       password: _password
     ).then((onValue)
      {
-      //Navigator.of(context).pushReplacementNamed('/dashBoardPage');
+       //Navigator.of(context).pushReplacementNamed('/dashBoardPage');
       Navigator.of(context).pushReplacementNamed('/buyProductPage');
     })
      .catchError((e)

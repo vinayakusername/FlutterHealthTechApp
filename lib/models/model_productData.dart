@@ -1,8 +1,9 @@
 class Product
 {
-  String model;
+  String imageUrl;
   String price;
   String company;
-
-  //Product(this.model,this.price,this.company);
+  // String model;
+  
+  Product(this.imageUrl,this.price,this.company);
 }
