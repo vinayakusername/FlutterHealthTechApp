@@ -50,14 +50,22 @@ class _BottomSheetPageState extends State<BottomSheetPage> {
              title: Text('Choose Preferred Action',style:TextStyle(fontSize: 20.0),textAlign: TextAlign.center,),
              content: Container
              (
-               height: 110.0,
+               height: 96.0,
+               decoration: BoxDecoration
+               (
+                 color: Colors.white,
+                 borderRadius: BorderRadius.all
+                 (
+                   Radius.circular(35.0)
+                 ),
+               ),
                child: Column
                (
                  children: <Widget>
                  [
                   FlatButton
                   (
-                    onPressed: null, 
+                    onPressed:()=>  Navigator.of(context).pop(), 
                     child: Text
                     (
                       'Watch Now', 
