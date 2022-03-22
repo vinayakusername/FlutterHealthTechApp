@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:health_tech_app1/Views/widget_notificationDialog.dart';
+import 'package:intl/intl.dart';
 
 class BottomSheetPage extends StatefulWidget {
   @override
@@ -6,6 +8,11 @@ class BottomSheetPage extends StatefulWidget {
 }
 
 class _BottomSheetPageState extends State<BottomSheetPage> {
+
+
+   DateTime selectedDate = DateTime.now();
+   final DateFormat dateFormat = DateFormat('yyyy-MM-dd  HH:mm');
+
   @override
   Widget build(BuildContext context) {
     return Scaffold
@@ -47,7 +54,12 @@ class _BottomSheetPageState extends State<BottomSheetPage> {
          {
            return AlertDialog
            (
-             title: Text('Choose Preferred Action',style:TextStyle(fontSize: 20.0),textAlign: TextAlign.center,),
+             title: Text
+             (
+               'Choose Preferred Action',
+               style:TextStyle(fontSize: 22.0,fontWeight: FontWeight.bold),
+               textAlign: TextAlign.center,
+             ),
              content: Container
              (
                height: 96.0,
@@ -69,7 +81,7 @@ class _BottomSheetPageState extends State<BottomSheetPage> {
                     child: Text
                     (
                       'Watch Now', 
-                      style: TextStyle(fontSize: 15.0,color:Colors.pink,),
+                      style: TextStyle(fontSize: 18.0,color:Colors.pink,fontWeight: FontWeight.bold),
                       textAlign: TextAlign.center
                     ),
                   ),
@@ -89,7 +101,7 @@ class _BottomSheetPageState extends State<BottomSheetPage> {
                     child: Text
                     (
                       'Reminder',
-                      style: TextStyle(fontSize: 15.0,color:Colors.pink,),
+                      style: TextStyle(fontSize: 18.0,color:Colors.pink,fontWeight: FontWeight.bold),
                       textAlign: TextAlign.center,
                     )
                   )
@@ -158,15 +170,37 @@ class _BottomSheetPageState extends State<BottomSheetPage> {
               (
                 'Reminder',
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize:20.0,color: Colors.pink),
+                style: TextStyle(fontSize:20.0,color: Colors.pink,fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 6.0,),
-              TextField
+              SizedBox(height: 10.0,),
+              // TextField
+              // (
+              //   autofocus: true,
+              //   autocorrect: true,
+              //   textAlign: TextAlign.center,
+              //   onChanged: (value){},
+              // ),
+              Text
               (
-                autofocus: true,
-                autocorrect: true,
+                dateFormat.format(selectedDate),
                 textAlign: TextAlign.center,
-                onChanged: (value){},
+                style: TextStyle(fontSize:20.0,fontWeight: FontWeight.bold),
+              ),
+              SizedBox(height:6.0),
+              FlatButton
+              (
+                onPressed:() async
+                {
+                  Navigator.of(context).pop();
+                   _dateTimePicker(); 
+                }, 
+                child: Text
+                (
+                'Choose Date And Time',
+                style: TextStyle(fontSize: 16.0,color: Colors.white),
+                textAlign: TextAlign.center,
+                ),
+                color: Colors.pink,
               ),
               FlatButton
               (
@@ -183,5 +217,16 @@ class _BottomSheetPageState extends State<BottomSheetPage> {
           ),
         ),
       );
+  }
+
+  Widget _dateTimePicker()
+  {
+    return showDateTimeDialog(context, initialDate:selectedDate, onSelectedDate: (selectedDate)
+              {
+                setState(() 
+                {
+                    this.selectedDate = selectedDate;  
+                });
+              });
   }
 }
